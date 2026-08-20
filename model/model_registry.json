@@ -1,0 +1,12 @@
+{
+  "models": [
+    {
+      "version": "SPY-v1",
+      "mean_accuracy": 0.48876404494382025,
+      "mean_baseline": 0.6292134831460675,
+      "mean_lift": -0.1404494382022472,
+      "gate": 0.03,
+      "active": false
+    }
+  ]
+}
