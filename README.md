@@ -13,6 +13,32 @@ A small, real, walk-forward-validated equity direction model, built and governed
 | [`model/tests/`](model/tests/) | Every fixed bug proven twice — an `xfail` against the pre-fix behavior, a passing test against the fix |
 | [`live/`](live/) | A daily GitHub Actions cron that re-validates against live data and appends one real, dated record to `track_record.jsonl` — win or lose, every day, not just the good ones |
 
+## Architecture
+
+```mermaid
+graph TD
+  RAW["Raw OHLCV data"]
+  FEAT["Feature Engineering<br/><small>5 features: RSI14, SMA20 ratio,<br/>10d volatility, volume ratio, momentum</small>"]
+  SPLIT["Walk-Forward Split<br/><small>gap=3d, structurally leak-proven</small>"]
+  TRAIN["GradientBoostingClassifier<br/><small>fit per fold</small>"]
+  GATE{{"Promotion Gate<br/><small>lift ≥ fold baseline + 3pp</small>"}}
+  REG["Model Registry<br/><small>every run logged, win or lose</small>"]
+  EXPLAIN["Feature Importances<br/><small>attached to every prediction</small>"]
+  LIVE["Daily Live Tracking<br/><small>cron, weekdays 21:30 UTC</small>"]
+  DRIFT["Drift Circuit Breaker<br/><small>rolling 10-outcome window</small>"]
+
+  RAW --> FEAT --> SPLIT --> TRAIN --> GATE
+  TRAIN --> EXPLAIN
+  GATE --> REG
+  REG --> LIVE
+  LIVE --> DRIFT
+
+  classDef disclosed fill:#3a331f,stroke:#e0c56f,stroke-width:2px,color:#f0e6c8;
+  class LIVE disclosed;
+```
+
+A fuller reference — this same diagram, a real build/decision timeline, and a live-verified status board across this repo and [`pipeline-reliability-patterns`](https://github.com/mboyajeffers/pipeline-reliability-patterns) — is at [mboyajeffers.github.io/reliability-patterns/architecture/](https://mboyajeffers.github.io/reliability-patterns/architecture/).
+
 ## Run it yourself
 
 ```bash
