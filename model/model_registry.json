@@ -327,6 +327,14 @@
       "mean_lift": -0.13202247191011235,
       "gate": 0.03,
       "active": false
+    },
+    {
+      "version": "SPY-2026-10-15",
+      "mean_accuracy": 0.4775280898876404,
+      "mean_baseline": 0.6067415730337078,
+      "mean_lift": -0.1292134831460674,
+      "gate": 0.03,
+      "active": false
     }
   ]
 }
