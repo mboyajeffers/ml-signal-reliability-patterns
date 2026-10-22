@@ -42,3 +42,4 @@
 {"date": "2026-10-16", "ticker": "SPY", "model_version": "SPY-2026-10-16", "active": false, "mean_accuracy": 0.4859550561797753, "mean_baseline": 0.6039325842696629, "mean_lift": -0.11797752808988765, "prediction": null}
 {"date": "2026-10-20", "ticker": "SPY", "model_version": "SPY-2026-10-20", "active": false, "mean_accuracy": 0.5113636363636364, "mean_baseline": 0.6051136363636364, "mean_lift": -0.09375, "prediction": null}
 {"date": "2026-10-21", "ticker": "SPY", "model_version": "SPY-2026-10-21", "active": false, "mean_accuracy": 0.5113636363636364, "mean_baseline": 0.6051136363636364, "mean_lift": -0.09375, "prediction": null}
+{"date": "2026-10-22", "ticker": "SPY", "model_version": "SPY-2026-10-22", "active": false, "mean_accuracy": 0.48863636363636365, "mean_baseline": 0.6051136363636364, "mean_lift": -0.11647727272727273, "prediction": null}
